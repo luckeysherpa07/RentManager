@@ -7,40 +7,37 @@ import {
 import { ListItem, Avatar } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
 
-const keyExtractor = (item, index) => index.toString()
-
-const renderItem = ({ item }) => {
-  return (
-  <TouchableOpacity onPressIn={item.goTo}>
-    <ListItem bottomDivider >
-      <Avatar title={item.name[0]} source={item.avatar_url && { uri: item.avatar_url }} />
-      <ListItem.Content>
-        <ListItem.Title>{item.name}</ListItem.Title>
-        <ListItem.Subtitle>Room No: {item.room}</ListItem.Subtitle>
-      </ListItem.Content>
-      <ListItem.Chevron />
-    </ListItem>
-  </TouchableOpacity>
-  )
-}
-
-function Home() {
+const Home = () => {
   const navigation = useNavigation();
-
+  
   const list = [
     {
       room: '1',
       name: 'Amy Farha',
-      subtitle: 'Vice President',
-      goTo: () => navigation.navigate("User")
     },
     {
       room: '2',
       name: 'Chris Jackson',
       avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-      subtitle: 'Vice Chairman'
     },
   ]
+
+  const keyExtractor = (item, index) => index.toString()
+
+  const renderItem = ({ item }) => {
+    return (
+    <TouchableOpacity onPressIn={() => navigation.navigate("User")}>
+      <ListItem bottomDivider >
+        <Avatar title={item.name[0]} source={item.avatar_url && { uri: item.avatar_url }} />
+        <ListItem.Content>
+          <ListItem.Title>{item.name}</ListItem.Title>
+          <ListItem.Subtitle>Room No: {item.room}</ListItem.Subtitle>
+        </ListItem.Content>
+        <ListItem.Chevron />
+      </ListItem>
+    </TouchableOpacity>
+    )
+  }
 
   return (
     <FlatList
