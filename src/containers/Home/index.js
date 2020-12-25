@@ -1,9 +1,8 @@
 import React from "react";
 import {
-  View,
-  Text,
   StyleSheet,
-  FlatList
+  FlatList,
+  TouchableOpacity
 } from "react-native";
 import { ListItem, Avatar } from 'react-native-elements'
 
@@ -24,14 +23,16 @@ const list = [
 keyExtractor = (item, index) => index.toString()
 
 renderItem = ({ item }) => (
-  <ListItem bottomDivider >
-    <Avatar title={item.name[0]} source={item.avatar_url && { uri: item.avatar_url }}/>
-    <ListItem.Content>
-      <ListItem.Title>{item.name}</ListItem.Title>
-      <ListItem.Subtitle>Room No: {item.room}</ListItem.Subtitle>
-    </ListItem.Content>
-    <ListItem.Chevron />
-  </ListItem>
+  <TouchableOpacity onPress={() => console.log("THIS IS ONPRESS")}>
+    <ListItem bottomDivider >
+      <Avatar title={item.name[0]} source={item.avatar_url && { uri: item.avatar_url }} />
+      <ListItem.Content>
+        <ListItem.Title>{item.name}</ListItem.Title>
+        <ListItem.Subtitle>Room No: {item.room}</ListItem.Subtitle>
+      </ListItem.Content>
+      <ListItem.Chevron />
+    </ListItem>
+  </TouchableOpacity>
 )
 
 const Home = (props) => (
