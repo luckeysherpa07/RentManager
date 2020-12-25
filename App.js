@@ -8,7 +8,14 @@
 
 import React from 'react';
 import Root from './src/routes/root';
+import { NavigationContainer } from '@react-navigation/native';
 
-const App = () => <Root />;
+const App = () => {
+  return(
+  <NavigationContainer>
+    <Root />
+  </NavigationContainer>
+  )
+};
 
 export default App;

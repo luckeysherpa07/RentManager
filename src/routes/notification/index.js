@@ -1,14 +1,13 @@
-import { createStackNavigator } from 'react-navigation-stack';
-import Notification from 'RentManager/src/containers/Notification';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import NotificationList from 'RentManager/src/containers/NotificationList';
 
-const NotificationNavigator = createStackNavigator({
-  Notification: {
-    screen: Notification
-  }
-});
+const Stack = createStackNavigator();
 
-NotificationNavigator.navigationOptions = {
-  tabBarLabel: "Notification"
-};
-
-export default NotificationNavigator;
+export default function Notification() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="NotificationList" component={NotificationList} />
+    </Stack.Navigator>
+  );
+}

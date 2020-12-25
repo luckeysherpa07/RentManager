@@ -1,14 +1,13 @@
-import { createStackNavigator } from 'react-navigation-stack';
-import Home from 'RentManager/src/containers/Home';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import TenantList from 'RentManager/src/containers/TenantList';
 
-const HomeNavigator = createStackNavigator({
-  Home: {
-    screen: Home
-  }
-});
+const Stack = createStackNavigator();
 
-HomeNavigator.navigationOptions = {
-  tabBarLabel: "Home"
-};
-
-export default HomeNavigator;
+export default function Home() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Tenant" component={TenantList} />
+    </Stack.Navigator>
+  );
+}

@@ -1,10 +1,15 @@
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-import Main from 'RentManager/src/routes/main';
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Home from 'RentManager/src/routes/home';
+import Notification from 'RentManager/src/routes/notification';
 
-const RootNavigator = createSwitchNavigator({
-  Main,
-});
+const Tab = createBottomTabNavigator();
 
-const Root = createAppContainer(RootNavigator);
-
-export default Root;
+export default function Root() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Notification" component={Notification} />
+    </Tab.Navigator>
+  );
+}
