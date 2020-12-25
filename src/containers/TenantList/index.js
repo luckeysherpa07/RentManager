@@ -5,25 +5,13 @@ import {
   TouchableOpacity
 } from "react-native";
 import { ListItem, Avatar } from 'react-native-elements'
+import { useNavigation } from '@react-navigation/native';
 
-const list = [
-  {
-    room: '1',
-    name: 'Amy Farha',
-    subtitle: 'Vice President'
-  },
-  {
-    room: '2',
-    name: 'Chris Jackson',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-    subtitle: 'Vice Chairman'
-  },
-]
+const keyExtractor = (item, index) => index.toString()
 
-keyExtractor = (item, index) => index.toString()
-
-renderItem = ({ item }) => (
-  <TouchableOpacity onPress={() => console.log("THIS IS ONPRESS")}>
+const renderItem = ({ item }) => {
+  return (
+  <TouchableOpacity onPressIn={item.goTo}>
     <ListItem bottomDivider >
       <Avatar title={item.name[0]} source={item.avatar_url && { uri: item.avatar_url }} />
       <ListItem.Content>
@@ -33,15 +21,35 @@ renderItem = ({ item }) => (
       <ListItem.Chevron />
     </ListItem>
   </TouchableOpacity>
-)
+  )
+}
 
-const Home = (props) => (
-  <FlatList
-    keyExtractor={this.keyExtractor}
-    data={list}
-    renderItem={this.renderItem}
-  />
-)
+function Home() {
+  const navigation = useNavigation();
+
+  const list = [
+    {
+      room: '1',
+      name: 'Amy Farha',
+      subtitle: 'Vice President',
+      goTo: () => navigation.navigate("User")
+    },
+    {
+      room: '2',
+      name: 'Chris Jackson',
+      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      subtitle: 'Vice Chairman'
+    },
+  ]
+
+  return (
+    <FlatList
+      keyExtractor={keyExtractor}
+      data={list}
+      renderItem={renderItem}
+    />
+  )
+}
 export default Home;
 
 const styles = StyleSheet.create({
