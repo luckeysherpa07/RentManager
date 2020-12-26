@@ -39,7 +39,7 @@ const User = (props) => (
   <UserContianer>
     <InfoContainer>
       <InfoCard>
-        <UserImage source={require('RentManager/src/assets/icon/profile-user.png')} />
+        <UserImage source={require('RentManager/src/assets/images/profile-user.png')} />
         <DetailContainer>
           <TitleText>User</TitleText>
           <TitleText>Room No: 1</TitleText>

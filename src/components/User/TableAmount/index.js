@@ -37,6 +37,11 @@ const TableAmount = (props) => (
     <TableContainer>
       <RowContainer>
         <CellContainer>
+          <Text>January</Text>
+        </CellContainer>
+      </RowContainer>
+      <RowContainer>
+        <CellContainer>
           <Text>Regular Rent</Text>
         </CellContainer>
         <AmountContainer>

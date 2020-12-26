@@ -4,12 +4,18 @@ import {
   FlatList,
   TouchableOpacity
 } from "react-native";
+import styled from 'styled-components/native';
 import { ListItem, Avatar } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
+import AmountSection from 'RentManager/src/components/TenantList/AmountSection';
+
+const TenantContainer = styled.ScrollView`
+  backgroundColor: red
+`
 
 const Home = () => {
   const navigation = useNavigation();
-  
+
   const list = [
     {
       room: '1',
@@ -26,25 +32,28 @@ const Home = () => {
 
   const renderItem = ({ item }) => {
     return (
-    <TouchableOpacity onPressIn={() => navigation.navigate("User")}>
-      <ListItem bottomDivider >
-        <Avatar title={item.name[0]} source={item.avatar_url && { uri: item.avatar_url }} />
-        <ListItem.Content>
-          <ListItem.Title>{item.name}</ListItem.Title>
-          <ListItem.Subtitle>Room No: {item.room}</ListItem.Subtitle>
-        </ListItem.Content>
-        <ListItem.Chevron />
-      </ListItem>
-    </TouchableOpacity>
+      <TouchableOpacity onPressIn={() => navigation.navigate("User")}>
+        <ListItem bottomDivider >
+          <Avatar title={item.name[0]} source={item.avatar_url && { uri: item.avatar_url }} />
+          <ListItem.Content>
+            <ListItem.Title>{item.name}</ListItem.Title>
+            <ListItem.Subtitle>Room No: {item.room}</ListItem.Subtitle>
+          </ListItem.Content>
+          <ListItem.Chevron />
+        </ListItem>
+      </TouchableOpacity>
     )
   }
 
   return (
-    <FlatList
-      keyExtractor={keyExtractor}
-      data={list}
-      renderItem={renderItem}
-    />
+    <TenantContainer>
+      <AmountSection />
+      <FlatList
+        keyExtractor={keyExtractor}
+        data={list}
+        renderItem={renderItem}
+      />
+    </TenantContainer>
   )
 }
 export default Home;
