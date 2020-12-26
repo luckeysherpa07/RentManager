@@ -26,11 +26,7 @@ const InfoCard = styled.View`
 
 const DetailContainer = styled.View`
   flexDirection: column
-`
-
-const ButtonContainer = styled.View`
-  flex: 1
-  backgroundColor: yellow
+  padding: 10px 10px 10px 10px
 `
 
 const UserImage = styled.Image`
@@ -40,7 +36,34 @@ const UserImage = styled.Image`
 `
 
 const TitleText = styled.Text`
-  fontSize: 20
+  fontSize: 15
+`
+
+const TimelineContainer = styled.View`
+  flex: 1
+  backgroundColor: yellow
+  margin: 10px 10px 10px 10px
+`
+
+const TableContainer = styled.View`
+  backgroundColor: blue
+  padding: 10px 10px 10px 10px
+`
+
+const RowContainer = styled.View`
+  backgroundColor: red
+  flexDirection: row
+`
+
+const CellContainer = styled.View`
+  flex: 2
+  padding: 5px 5px 5px 5px
+  backgroundColor: green
+`
+
+const AmountContainer = styled.View`
+  flex: 1
+  padding: 5px 5px 5px 5px
 `
 
 const User = (props) => (
@@ -52,13 +75,46 @@ const User = (props) => (
           <DetailContainer>
             <TitleText>User</TitleText>
             <TitleText>Room No: 1</TitleText>
-            <TitleText>Total Rent: Rs 2000</TitleText>
+            <TitleText>Total Rent: Rs 10000</TitleText>
           </DetailContainer>
         </InfoCard>
       </InfoContainer>
-      <ButtonContainer>
-        <Text>User</Text>
-      </ButtonContainer>
+      <TimelineContainer>
+        <TableContainer>
+          <RowContainer>
+            <CellContainer>
+              <Text>Regular Rent</Text>
+            </CellContainer>
+            <AmountContainer>
+              <Text>Rs 2000</Text>
+            </AmountContainer>
+          </RowContainer>
+          <RowContainer>
+            <CellContainer>
+              <Text>Electricity</Text>
+            </CellContainer>
+            <AmountContainer>
+              <Text>Rs 500</Text>
+            </AmountContainer>
+          </RowContainer>
+          <RowContainer>
+            <CellContainer>
+              <Text>Water</Text>
+            </CellContainer>
+            <AmountContainer>
+              <Text>Rs 500</Text>
+            </AmountContainer>
+          </RowContainer>
+          <RowContainer>
+            <CellContainer>
+              <Text>Internet</Text>
+            </CellContainer>
+            <AmountContainer>
+              <Text>Rs 600</Text>
+            </AmountContainer>
+          </RowContainer>
+        </TableContainer>
+      </TimelineContainer>
     </UserContianer>
   </View>
 )
