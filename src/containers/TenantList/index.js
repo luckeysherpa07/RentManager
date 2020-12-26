@@ -13,11 +13,11 @@ const Home = () => {
   const list = [
     {
       room: '1',
-      name: 'Amy Farha',
+      name: 'Pasang Sherpa',
     },
     {
       room: '2',
-      name: 'Chris Jackson',
+      name: 'Tsering Sherpa',
       avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     },
   ]
