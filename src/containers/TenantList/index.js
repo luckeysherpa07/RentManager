@@ -20,6 +20,13 @@ const Home = () => {
     {
       room: '1',
       name: 'Pasang Sherpa',
+      month: {
+        name: 'January',
+        roomRent: 5000,
+        water: 500,
+        internet: 500,
+        
+      }
     },
     {
       room: '2',

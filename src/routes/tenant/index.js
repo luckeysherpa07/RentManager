@@ -5,7 +5,7 @@ import User from 'RentManager/src/containers/User';
 
 const Stack = createStackNavigator();
 
-export default function Home() {
+export default function Tenant() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Tenant" component={TenantList} />
